@@ -7,3 +7,5 @@ def team_introduction():
     print(bib.get_name())
     print(me.py.get_name())
     print(angela.get_name())
+if __name__ == "__main__":
+    team_introduction()
