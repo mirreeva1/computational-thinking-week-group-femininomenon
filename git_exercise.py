@@ -6,4 +6,4 @@ def team_introduction():
     print(hola.get_name())
     print(bib.get_name())
     print(me.py.get_name())
-    print(member3.get_name())
+    print(angela.get_name())
