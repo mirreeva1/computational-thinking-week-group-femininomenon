@@ -1,31 +1,17 @@
 from datetime import datetime
 
-def solution_station_1(date_str):
-    
-    date_format = "%Y-%m-%d"
-    
+def solution_station_2(date_in_string):
 
-    days_of_week_japanese = {
-        "Monday": "月曜日",
-        "Tuesday": "火曜日",
-        "Wednesday": "水曜日",
-        "Thursday": "木曜日",
-        "Friday": "金曜日",
-        "Saturday": "土曜日",
-        "Sunday": "日曜日"
-    }
-    
-    try:
-    
-        date_obj = datetime.strptime(date_str, date_format)
-        day_of_week_english = date_obj.strftime("%A")
-        day_of_week_japanese = days_of_week_japanese.get(day_of_week_english, "不明な日")
-        return day_of_week_japanese
-    except ValueError:
-        return "無効な日付形式"
+    days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
+    jap_days = ['月曜日', '火曜日', '水曜日', '木曜日', '金曜日', '土曜日', '日曜日', ]
 
+    clean_date = datetime.strptime(date_in_string, '%Y-%m-%d')
+    day = clean_date.weekday()
 
-if __name__ == "__main__":
-    test_date = "2023-01-07"
-    print(solution_station_1(test_date))  # Output: 土曜日
+    jap_day = jap_days[day]
+
+    return jap_day
+
+date_in_string = '2023-01-31'
+jap_day = solution_station_2(date_in_string)
 
