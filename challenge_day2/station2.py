@@ -1,43 +1,33 @@
 from datetime import datetime
-from dateutil.relativedelta import relativedelta
 
-def solution_station_X(date_input: str) -> str:
-    input_date = datetime.strptime(date_input, "%Y-%m-%d")
+def solution_station_1(date_str):
     
-    # Applying a general transformation - adjust this logic based on your specific analysis
-    # For demonstration, we'll add a varying amount of time similar to the observed differences.
+    date_format = "%Y-%m-%d"
     
-    if date_input == "2023-01-07":
-        output_date = input_date + relativedelta(months=11, days=12)
-    elif date_input == "2023-04-04":
-        output_date = input_date + relativedelta(months=9, days=27)
-    elif date_input == "2023-07-29":
-        output_date = input_date + relativedelta(months=6, days=8)
-    elif date_input == "2023-03-01":
-        output_date = input_date + relativedelta(years=1, months=6, days=23)
-    elif date_input == "2023-11-23":
-        output_date = input_date + relativedelta(months=1, days=18)
-    elif date_input == "2023-06-23":
-        output_date = input_date + relativedelta(months=10)
-    elif date_input == "2023-04-01":
-        output_date = input_date + relativedelta(years=1, months=4, days=16)
-    else:
-        # Default transformation if input doesn't match known patterns (this should be refined)
-        output_date = input_date + relativedelta(months=6)
+    # Dictionary to map English days to Japanese
+    days_of_week_japanese = {
+        "Monday": "月曜日",
+        "Tuesday": "火曜日",
+        "Wednesday": "水曜日",
+        "Thursday": "木曜日",
+        "Friday": "金曜日",
+        "Saturday": "土曜日",
+        "Sunday": "日曜日"
+    }
     
-    return output_date.strftime("%Y-%m-%d")
+    try:
+        # Parse the date string into a datetime object
+        date_obj = datetime.strptime(date_str, date_format)
+        # Get the day of the week in English
+        day_of_week_english = date_obj.strftime("%A")
+        # Convert to Japanese using the dictionary
+        day_of_week_japanese = days_of_week_japanese.get(day_of_week_english, "不明な日")
+        return day_of_week_japanese
+    except ValueError:
+        return "無効な日付形式"
 
-# Testing the function with provided inputs
+
 if __name__ == "__main__":
-    inputs = [
-        "2023-01-07",
-        "2023-04-04",
-        "2023-07-29",
-        "2023-03-01",
-        "2023-11-23",
-        "2023-06-23",
-        "2023-04-01"
-    ]
-    
-    outputs = [solution_station_X(date_input) for date_input in inputs]
-    print(outputs)
+    test_date = "2023-01-07"
+    print(solution_station_1(test_date))  # Output: 土曜日
+
