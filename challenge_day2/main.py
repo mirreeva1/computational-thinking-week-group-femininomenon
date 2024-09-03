@@ -1,29 +1,38 @@
 from tests import tests
+from station1 import solution_station_1
 from station2 import solution_station_2
 from station3 import solution_station_3
+from station4 import solution_station_4
 from station5 import solution_station_5
 from station6 import solution_station_6
+from station7 import solution_station_7
 
-observation2 = ('10:09:20', '2024-07-15', 3235, "Kimiya", 12)
-observation3 = ('10:09:34', '2024-01-14', 52762, "Tadas", 52)
-observation5 = ('10:09:41', '2024-11-08',8674, "Mark", 86
+# List three observations of all inputs (not sample inputs) observed at the same time
+# Format: (time: str, station1_input: int, station2_input: str, station3_input: int, station4_input: int, station5_input: str, station6_input: int, station7_input: str)
+# Example: ('12:30:00', 1, '1990-01-01', 2, 3, "John", 4, "e=mc^2")
+
+observation1 = ('12:25:12', 99, '2024-05-12', 39416, 3941, 'Sahir', 39, 'a+c+b')
+observation2 = ('12:25:20', 99, '2024-02-15', 78510, 7851, 'Charlie', 78, 'b+e')
+observation3 = ('12:25:30', 35, '2024-02-26', 44121, 4412, 'Gonzalo', 44, 'd+b+e')
 
 def combined_algorithm(observations: tuple) -> int:
-    output2 = solution_station_2(observations[5])
-    output3 = solution_station_3(observations[2])
-    output5 = solution_station_5(observations[3])
-    
+    output1 = solution_station_1(observations[1])
+    output2 = solution_station_2(observations[2])
+    output3 = solution_station_3(observations[3])
+    output4 = solution_station_4(observations[4])
+    output5 = solution_station_5(observations[5])
+    output6 = solution_station_6(observations[6])
+    output7 = solution_station_7(observations[7])
+    assert isinstance(output1, int)
     assert isinstance(output2, str)
     assert isinstance(output3, bool)
+    assert isinstance(output4, bool)
     assert isinstance(output5, int)
-    
-    
-    return int.from_bytes(output2[0].encode("unicode_escape"), byteorder='big') * (3 if output3 else 2) * output5 * output6
+    assert isinstance(output6, float)
+    assert isinstance(output7, float)
+    return output1 * int.from_bytes(output2[0].encode("unicode_escape"), byteorder='big') * (3 if output3 else 2) * (5 if output4 else 4) * output5 * output6 * output7
 
+FINAL_OUTPUT1 = combined_algorithm(observation1)
 FINAL_OUTPUT2 = combined_algorithm(observation2)
 FINAL_OUTPUT3 = combined_algorithm(observation3)
-FINAL_OUTPUT5 = combined_algorithm(observation5)
-FINAL_OUTPUT6 = combined_algorithm(observation6)
-
-
-tests.Test_Exercise(combined_algorithm)
+tests.Test_Exercise(combined_algorithm);
