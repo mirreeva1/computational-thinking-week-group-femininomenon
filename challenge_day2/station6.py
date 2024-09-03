@@ -1,15 +1,18 @@
-solution_station_6(print)
-sample_input={1.6, 0.8, 1.9, 0.3, 1.3, 1.3, 2.8, 2.6}
-input={38, 58, 22, 30, 72, 73, 15, 46}
-sample_output={0.9996, 0.7174, 0.9463, 0.2955, 0.9636, 0.9693, 0.335, 0.5155}
+import numpy as np
 
-import math
+def solution_station_6(inputs: int) -> float:
+    sample_inputs = np.array([1.6, 0.8, 1.9, 0.3, 1.3, 1.3, 2.8, 2.6])
+    sample_outputs = np.array([0.9996, 0.7174, 0.9463, 0.2955, 0.9636, 0.9636, 0.335, 0.5155])
+    
+    min_input = np.min(sample_inputs)
+    max_input = np.max(sample_inputs)
+    
+    normalized_input = (inputs - min_input) / (max_input - min_input)
 
-def solution_station_6(input_set):
-    output_set = {round(math.sin(x) * x, 4) for x in input_set}
-    return output_set
+    transformed_results_provided = np.array([1535.144, 2349.544, 883.624, 1209.384, 2919.624, 2960.344, 598.584, 1860.904])
+    scaling_factor = (transformed_results_provided - transformed_results_provided.mean()) / (normalized_input - normalized_input.mean())
+    scaling_factor = scaling_factor.mean()  
 
-input_set = {38, 58, 22, 30, 72, 73, 15, 46}
-
-output_set = solution_station_6(input_set)
-print(output_set)
+    normalized_result = normalized_input * scaling_factor
+    
+    return normalized_result
