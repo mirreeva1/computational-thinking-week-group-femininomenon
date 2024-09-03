@@ -11,9 +11,9 @@ from station7 import solution_station_7
 # Format: (time: str, station1_input: int, station2_input: str, station3_input: int, station4_input: int, station5_input: str, station6_input: int, station7_input: str)
 # Example: ('12:30:00', 1, '1990-01-01', 2, 3, "John", 4, "e=mc^2")
 
-observation1 = ('12:25:12', 99, '2024-05-12', 39416, 3941, 'Sahir', 39, 'a+c+b')
-observation2 = ('12:25:20', 99, '2024-02-15', 78510, 7851, 'Charlie', 78, 'b+e')
-observation3 = ('12:25:30', 35, '2024-02-26', 44121, 4412, 'Gonzalo', 44, 'd+b+e')
+observation1 = ('10:09:20', 9, '2024-07-15', 3235, 3203, "Kimiya", 12, "c*e")
+observation2 = ('10:09:34', 29, '2024-01-14', 52762, 5276, "Tadas", 52, "c*e")
+observation3 = ('10:09:41', 75, '2024-11-08', 86476, 8647, "Mark", 86, "e*a")
 
 def combined_algorithm(observations: tuple) -> int:
     output1 = solution_station_1(observations[1])
