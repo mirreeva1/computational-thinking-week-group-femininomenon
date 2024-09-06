@@ -1,4 +1,2 @@
-git add path/to/file.py
-git commit -m "This is a message describing what I did"
-
-git push
+def get_name():
+    return "Bianka"
