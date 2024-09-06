@@ -1,7 +1,7 @@
-import hola.py
-import bib.py
-import me.py
-import angela.py
+import hola
+import bib
+import me
+import angela
 def team_introduction():
     print("This is Team Feminionioin. We are:")
     print(hola.get_name())
